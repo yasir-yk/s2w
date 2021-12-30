@@ -1,0 +1,225 @@
+{
+	"copyright": "\n********************************************\n* 2018–2019 All Rights Reserved. S2W, Inc. *\n********************************************\n",
+	"updateMenu": [
+		{
+			"question": "Select action:",
+			"caption": "Continue project",
+			"value": "project_continue",
+			"run": [
+				{ "matchValue": "npm install", "fsNotExist": "markup/node_modules" },
+				"grunt"
+			]
+		},
+		{
+			"caption": "Update project modules",
+			"value": "project_update",
+			"run": ["npm update"]
+		},
+		{
+			"caption": "Release project (ready for QA)",
+			"value": "project_dist",
+			"run": ["grunt dist"]
+		}
+	],
+	"createMenu": [
+		{
+			"question": "Select project type:",
+			"caption": "Markup Only",
+			"value": "markup_only",
+			"menu": [
+				{
+					"question": "Select framework:",
+					"caption": "No framework",
+					"value": "no_framework",
+					"menu": [
+						{
+							"question": "Select HTML Preprocessor:",
+							"caption": "HTML",
+							"value": "HTML"
+						},
+						{
+							"caption": "simpleHTML",
+							"value": "simpleHTML"
+						}
+					]
+				},
+				{
+					"caption": "Bootstrap",
+					"value": "bootstrap",
+					"menu": [
+						{
+							"question": "Select version:",
+							"caption": "Bootstrap 3",
+							"value": "bootstrap_3",
+							"menu": [
+								{
+									"question": "Select CSS Preprocessor:",
+									"caption": "SCSS",
+									"value": "SCSS"
+								}
+							]
+						},
+						{
+							"caption": "Bootstrap 4",
+							"value": "bootstrap_4",
+							"menu": [
+								{
+									"question": "Select CSS Preprocessor:",
+									"caption": "SCSS",
+									"value": "SCSS"
+								}
+							]
+						}
+					]
+				},
+				{
+					"caption": "Materialize",
+					"value": "materialize"
+				}
+			]
+		},
+		{
+			"caption": "Markup + CMS",
+			"value": "markup_cms",
+			"menu": [
+				{
+					"question": "Select CMS:",
+					"caption": "WordPress",
+					"value": "wp",
+					"menu": [
+						{
+							"question": "Select framework:",
+							"caption": "No framework",
+							"value": "no_framework",
+							"menu": [
+								{
+									"question": "Select HTML Preprocessor:",
+									"caption": "HTML",
+									"value": "HTML"
+								},
+								{
+									"caption": "simpleHTML",
+									"value": "simpleHTML"
+								}
+							]
+						},
+						{
+							"caption": "Bootstrap",
+							"value": "bootstrap",
+							"menu": [
+								{
+									"question": "Select version:",
+									"caption": "Bootstrap 3",
+									"value": "bootstrap_3",
+									"menu": [
+										{
+											"question": "Select CSS Preprocessor:",
+											"caption": "SCSS",
+											"value": "SCSS"
+										}
+									]
+								},
+								{
+									"caption": "Bootstrap 4",
+									"value": "bootstrap_4",
+									"menu": [
+										{
+											"question": "Select CSS Preprocessor:",
+											"caption": "SCSS",
+											"value": "SCSS"
+										}
+									]
+								}
+							]
+						},
+						{
+							"caption": "Materialize",
+							"value": "materialize"
+						}
+					]
+				}
+			]
+		}
+	],
+	"data": {
+		"path": "markup",
+		"source": [
+			{ "matchValue": "https://github.com/yasir-yk/bootstrap5.git", "dependenciesAny": ["simpleHTML"] },
+			{ "matchValue": "http://gitlab.p2h.com:8443/iMarkup/CMS/grunt-add-cms.git", "dependenciesAll": ["wp"] },
+			{ "matchValue": "http://gitlab.p2h.com:8443/iMarkup/CMS/grunt-add-wp.git", "dependenciesAll": ["wp"] },
+			{ "matchValue": "http://gitlab.p2h.com:8443/iMarkup/Bootstrap/bootstrap_3.git", "dependenciesAny": ["bootstrap_3"] },
+			{ "matchValue": "http://gitlab.p2h.com:8443/iMarkup/Bootstrap/bootstrap_4.git", "dependenciesAny": ["bootstrap_4"] },
+			{ "matchValue": "http://gitlab.p2h.com:8443/iMarkup/grunt-add-materialize.git", "dependenciesAll": ["materialize"] }
+		],
+		"ignore": [
+			{ "matchValue": "scss/main.scss", "dependenciesAny": ["wp"] },
+			{ "matchValue": " grunt-settings.js", "dependenciesAll": ["wp", "bootstrap_4"] },
+			{ "matchValue": "scss/base/_wp-reset.scss", "dependenciesAny": ["materialize"] },
+			{ "matchValue": "scss/base/_wp-reset.scss", "dependenciesAny": ["bootstrap_4"] },
+			{ "matchValue": "scss/base/_wp-reset.scss", "dependenciesAny": ["bootstrap_3"] },
+			{ "matchValue": "scss/base/_normalize.scss", "dependenciesAny": ["materialize"] },
+			{ "matchValue": "scss/base/_normalize.scss", "dependenciesAny": ["bootstrap_4"] },
+			{ "matchValue": "scss/base/_normalize.scss", "dependenciesAny": ["bootstrap_3"] },
+			{ "matchValue": "scss/base/_forms.scss", "dependenciesAny": ["materialize"] },
+			{ "matchValue": "scss/base/_forms.scss", "dependenciesAny": ["bootstrap_4"] },
+			{ "matchValue": "scss/base/_forms.scss", "dependenciesAny": ["bootstrap_3"] },
+			{ "matchValue": "scss/base/_functions.scss", "dependenciesAny": ["materialize"] },
+			{ "matchValue": "scss/base/_typography.scss", "dependenciesAny": ["materialize"] },
+			{ "matchValue": "scss/base/_typography.scss", "dependenciesAny": ["bootstrap_4"] },
+			{ "matchValue": "scss/base/_typography.scss", "dependenciesAny": ["bootstrap_3"] },
+			{ "matchValue": "scss/base/_cms-reset.scss", "dependenciesAny": ["materialize"] },
+			{ "matchValue": "scss/base/_cms-reset.scss", "dependenciesAny": ["bootstrap_4"] },
+			{ "matchValue": "scss/base/_cms-reset.scss", "dependenciesAny": ["bootstrap_3"] },
+			{ "matchValue": "scss/base/_variables.scss", "dependenciesAny": ["materialize"] },
+			{ "matchValue": "scss/base/_variables.scss", "dependenciesAny": ["bootstrap_4"] },
+			{ "matchValue": "scss/base/_variables.scss", "dependenciesAny": ["bootstrap_3"] },
+			{ "matchValue": "scss/base/_reset.scss", "dependenciesAny": ["materialize"] },
+			{ "matchValue": "scss/base/_reset.scss", "dependenciesAny": ["bootstrap_4"] },
+			{ "matchValue": "scss/base/_reset.scss", "dependenciesAny": ["bootstrap_3"] },
+			{ "matchValue": "scss", "dependenciesAll":["LESS", "bootstrap_3" ] },
+			{ "matchValue": "less", "dependenciesAll":["SCSS", "bootstrap_3" ] },
+			{ "matchValue": "less/all.less", "dependenciesAll":["LESS", "wp", "bootstrap_3" ] },
+			{ "matchValue": "less/main.less", "dependenciesAll":["LESS", "wp", "bootstrap_3" ] },
+			{ "matchValue": "grunt-settings_less.js", "dependenciesAll":["SCSS", "bootstrap_3" ] },
+			{ "matchValue": "Gruntfile_less.js", "dependenciesAll":["SCSS", "bootstrap_3" ] },
+			{ "matchValue": "package_less.json", "dependenciesAll":["SCSS", "bootstrap_3" ] },
+			{ "matchValue": "wp-bootstrap-index.html", "excludeIf": ["wp"] },
+			{ "matchValue": "wp-elements-bootstrap.html", "excludeIf": ["wp"] },
+			{ "matchValue": "wp-materialize-index.html", "excludeIf": ["wp"] },
+			{ "matchValue": "scss/wp-bootstrap-style.scss", "excludeIf": ["wp"] },
+			{ "matchValue": "index.html", "dependenciesAll":["bootstrap_3", "wp"] },
+			{ "matchValue": "index.html", "dependenciesAll":["bootstrap_4", "wp"] },
+			{ "matchValue": "index.html", "dependenciesAll":["materialize", "wp"] },
+			{ "matchValue": "wp-foundation-grunt-settings.js", "excludeIf": ["wp"] },
+			{ "matchValue": "wp-foundation-index.html", "excludeIf": ["wp"] },
+			{ "matchValue": "wp-materialize-grunt-settings.js", "excludeIf": ["wp"] },
+			{ "matchValue": "wp-materialize-index.html", "excludeIf": ["wp"] },
+			{ "matchValue": "scss/base/_wp-reset-fw.scss", "excludeIf": ["bootstrap_3", "bootstrap_4"] },
+			{ "matchValue": "scss/base/_wp-reset_ZURB.scss", "dependenciesAll": ["wp"] },
+			{ "matchValue": "scss/wp-foundation-app.scss", "excludeIf": ["wp"] },
+			{ "matchValue": "scss/wp-materialize-main.scss", "excludeIf": ["wp"] }
+		],
+		"rename": [
+			{ "matchValue": {"scss/wp-bootstrap-style.scss":"scss/style.scss"}, "dependenciesAll": ["wp", "bootstrap_4"] },
+			{ "matchValue": {"scss/wp-bootstrap-style.scss":"scss/style.scss"}, "dependenciesAll": ["wp", "bootstrap_3"] },
+			{ "matchValue": {"less/wp-bootstrap-style.less":"scss/style.less"}, "dependenciesAll": ["wp", "LESS", "bootstrap_4"] },
+			{ "matchValue": {"less/wp-bootstrap-style.less":"scss/style.less"}, "dependenciesAll": ["wp", "LESS", "bootstrap_3"] },
+			{ "matchValue": {"grunt-settings_less.js":"grunt-settings.js"}, "dependenciesAll": ["LESS", "bootstrap_3"] },
+			{ "matchValue": {"Gruntfile_less.js":"Gruntfile.js"}, "dependenciesAll": ["LESS", "bootstrap_3"] },
+			{ "matchValue": {"package_less.json":"package.json"}, "dependenciesAll": ["LESS", "bootstrap_3"] },
+			{ "matchValue": {"wp-bootstrap-index.html":"index.html"}, "dependenciesAll": ["wp", "bootstrap_4"] },
+			{ "matchValue": {"wp-bootstrap-index.html":"index.html"}, "dependenciesAll": ["wp", "bootstrap_3"] },
+			{ "matchValue": {"wp-elements-bootstrap.html":"elements-bootstrap.html"}, "dependenciesAll": ["wp", "bootstrap_4"] },
+			{ "matchValue": {"wp-elements-bootstrap.html":"elements-bootstrap.html"}, "dependenciesAll": ["wp", "bootstrap_3"] },
+			{ "matchValue": {"scss/base/_wp-reset-fw.scss":"scss/base/_wp-reset.scss"}, "dependenciesAny": ["bootstrap_3", "bootstrap_4", "materialize"] },
+			{ "matchValue": {"scss/wp-materialize-main.scss":"scss/style.scss"}, "dependenciesAll": ["wp", "materialize"] },
+			{ "matchValue": {"wp-materialize-index.html":"index.html"}, "dependenciesAll": ["wp", "materialize"] },
+			{ "matchValue": {"wp-materialize-grunt-settings.js":"grunt-settings.js"}, "dependenciesAll": ["wp", "materialize"] }
+		],
+		"run": [
+			{ "matchValue": "bower install", "dependenciesAny": [ "materialize"] },
+			{ "matchValue": "npm install" },
+			{ "matchValue": "grunt" }
+		]
+	}
+}
